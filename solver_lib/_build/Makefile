@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named solver_lib
+# Target rules for targets named formatter
 
 # Build rule for target.
-solver_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 solver_lib
-.PHONY : solver_lib
+formatter: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 formatter
+.PHONY : formatter
 
 # fast build rule for target.
-solver_lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/build
-.PHONY : solver_lib/fast
+formatter/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter.dir/build.make CMakeFiles/formatter.dir/build
+.PHONY : formatter/fast
 
 solver.o: solver.cpp.o
 .PHONY : solver.o
 
 # target to build an object file
 solver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/solver.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter.dir/build.make CMakeFiles/formatter.dir/solver.cpp.o
 .PHONY : solver.cpp.o
 
 solver.i: solver.cpp.i
@@ -142,7 +142,7 @@ solver.i: solver.cpp.i
 
 # target to preprocess a source file
 solver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/solver.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter.dir/build.make CMakeFiles/formatter.dir/solver.cpp.i
 .PHONY : solver.cpp.i
 
 solver.s: solver.cpp.s
@@ -150,7 +150,7 @@ solver.s: solver.cpp.s
 
 # target to generate assembly for a file
 solver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/solver.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter.dir/build.make CMakeFiles/formatter.dir/solver.cpp.s
 .PHONY : solver.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... solver_lib"
+	@echo "... formatter"
 	@echo "... solver.o"
 	@echo "... solver.i"
 	@echo "... solver.s"

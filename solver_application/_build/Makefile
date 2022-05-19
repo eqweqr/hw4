@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named solver
+# Target rules for targets named formatter_lib
 
 # Build rule for target.
-solver: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 solver
-.PHONY : solver
+formatter_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 formatter_lib
+.PHONY : formatter_lib
 
 # fast build rule for target.
-solver/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/build
-.PHONY : solver/fast
+formatter_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_lib.dir/build.make CMakeFiles/formatter_lib.dir/build
+.PHONY : formatter_lib/fast
 
 #=============================================================================
 # Target rules for targets named formatter_ex_lib
@@ -139,7 +139,7 @@ formatter_ex_lib: cmake_check_build_system
 
 # fast build rule for target.
 formatter_ex_lib/fast:
-	$(MAKE) $(MAKESILENT) -f formatter_ex/CMakeFiles/formatter_ex_lib.dir/build.make formatter_ex/CMakeFiles/formatter_ex_lib.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_ex_lib.dir/build.make CMakeFiles/formatter_ex_lib.dir/build
 .PHONY : formatter_ex_lib/fast
 
 #=============================================================================
@@ -152,15 +152,28 @@ solver_lib: cmake_check_build_system
 
 # fast build rule for target.
 solver_lib/fast:
-	$(MAKE) $(MAKESILENT) -f solver_lib/CMakeFiles/solver_lib.dir/build.make solver_lib/CMakeFiles/solver_lib.dir/build
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/build
 .PHONY : solver_lib/fast
+
+#=============================================================================
+# Target rules for targets named lab03
+
+# Build rule for target.
+lab03: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab03
+.PHONY : lab03
+
+# fast build rule for target.
+lab03/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab03.dir/build.make CMakeFiles/lab03.dir/build
+.PHONY : lab03/fast
 
 equation.o: equation.cpp.o
 .PHONY : equation.o
 
 # target to build an object file
 equation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/equation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab03.dir/build.make CMakeFiles/lab03.dir/equation.cpp.o
 .PHONY : equation.cpp.o
 
 equation.i: equation.cpp.i
@@ -168,7 +181,7 @@ equation.i: equation.cpp.i
 
 # target to preprocess a source file
 equation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/equation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab03.dir/build.make CMakeFiles/lab03.dir/equation.cpp.i
 .PHONY : equation.cpp.i
 
 equation.s: equation.cpp.s
@@ -176,8 +189,80 @@ equation.s: equation.cpp.s
 
 # target to generate assembly for a file
 equation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver.dir/build.make CMakeFiles/solver.dir/equation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab03.dir/build.make CMakeFiles/lab03.dir/equation.cpp.s
 .PHONY : equation.cpp.s
+
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.o: home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.o
+
+# target to build an object file
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_ex_lib.dir/build.make CMakeFiles/formatter_ex_lib.dir/home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.o
+
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.i: home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.i
+
+# target to preprocess a source file
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_ex_lib.dir/build.make CMakeFiles/formatter_ex_lib.dir/home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.i
+
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.s: home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.s
+
+# target to generate assembly for a file
+home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_ex_lib.dir/build.make CMakeFiles/formatter_ex_lib.dir/home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.s
+
+home/leonard/TIMP/hw3_/formatter_lib/formatter.o: home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.o
+
+# target to build an object file
+home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_lib.dir/build.make CMakeFiles/formatter_lib.dir/home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.o
+
+home/leonard/TIMP/hw3_/formatter_lib/formatter.i: home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.i
+
+# target to preprocess a source file
+home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_lib.dir/build.make CMakeFiles/formatter_lib.dir/home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.i
+
+home/leonard/TIMP/hw3_/formatter_lib/formatter.s: home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.s
+
+# target to generate assembly for a file
+home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formatter_lib.dir/build.make CMakeFiles/formatter_lib.dir/home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.s
+
+home/leonard/TIMP/hw3_/solver_lib/solver.o: home/leonard/TIMP/hw3_/solver_lib/solver.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.o
+
+# target to build an object file
+home/leonard/TIMP/hw3_/solver_lib/solver.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/home/leonard/TIMP/hw3_/solver_lib/solver.cpp.o
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.cpp.o
+
+home/leonard/TIMP/hw3_/solver_lib/solver.i: home/leonard/TIMP/hw3_/solver_lib/solver.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.i
+
+# target to preprocess a source file
+home/leonard/TIMP/hw3_/solver_lib/solver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/home/leonard/TIMP/hw3_/solver_lib/solver.cpp.i
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.cpp.i
+
+home/leonard/TIMP/hw3_/solver_lib/solver.s: home/leonard/TIMP/hw3_/solver_lib/solver.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.s
+
+# target to generate assembly for a file
+home/leonard/TIMP/hw3_/solver_lib/solver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/solver_lib.dir/build.make CMakeFiles/solver_lib.dir/home/leonard/TIMP/hw3_/solver_lib/solver.cpp.s
+.PHONY : home/leonard/TIMP/hw3_/solver_lib/solver.cpp.s
 
 # Help Target
 help:
@@ -188,11 +273,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... formatter_ex_lib"
-	@echo "... solver"
+	@echo "... formatter_lib"
+	@echo "... lab03"
 	@echo "... solver_lib"
 	@echo "... equation.o"
 	@echo "... equation.i"
 	@echo "... equation.s"
+	@echo "... home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.o"
+	@echo "... home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.i"
+	@echo "... home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.s"
+	@echo "... home/leonard/TIMP/hw3_/formatter_lib/formatter.o"
+	@echo "... home/leonard/TIMP/hw3_/formatter_lib/formatter.i"
+	@echo "... home/leonard/TIMP/hw3_/formatter_lib/formatter.s"
+	@echo "... home/leonard/TIMP/hw3_/solver_lib/solver.o"
+	@echo "... home/leonard/TIMP/hw3_/solver_lib/solver.i"
+	@echo "... home/leonard/TIMP/hw3_/solver_lib/solver.s"
 .PHONY : help
 
 

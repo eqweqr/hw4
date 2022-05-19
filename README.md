@@ -151,13 +151,12 @@ $ cmake --build _build
 ```shell
 $ cat>CMakeLists.txt<<EOF
 >cmake_minimum_required(VERSION 3.22)
+>project (solver_lib)
 >
 >set(CMAKE_CXX_STANDARD 11)
 >set(CMAKE_CXX_STANDARD_REQUIRED ON)
 >
->project(solver_lib)
->
->add_library(solver_lib STATIC solver.cpp)
+>add_library(formatter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/solver.h ${CMAKE_CURRENT_SOURCE_DIR}/solver.cpp)
 >EOF
 ```
 Билд
@@ -167,29 +166,34 @@ $ cmake -H. -B_build
 -- Generating done
 -- Build files have been written to: /home/leonard/TIMP/hw3_/solver_lib/_build
 $ cmake --build _build
-Consolidate compiler generated dependencies of target solver_lib
-[100%] Built target solver_lib
+[ 50%] Building CXX object CMakeFiles/formatter.dir/solver.cpp.o
+[100%] Linking CXX static library libformatter.a
+[100%] Built target formatter
+
 
 ```
-Создание CMakeLists.txt в директории solver_lib
+Создание CMakeLists.txt в директории solver_application
 
 ```shell
 $ cat>CMakeLists.txt<<EOF
 >cmake_minimum_required(VERSION 3.22)
+>project(lab03)
 >
 >set(CMAKE_CXX_STANDARD 11)
 >set(CMAKE_CXX_STANDARD_REQUIRED ON)
 >
->project(solver)
+>include_directories("../formatter_lib")
+>include_directories("../formatter_ex_lib")
+>include_directories("../solver_lib")
+>add_library(formatter_lib STATIC "../formatter_lib/formatter.cpp")
+>add_library(formatter_ex_lib STATIC "../formatter_ex_lib/formatter_ex.cpp")
+>add_library(solver_lib STATIC "../solver_lib/solver.cpp")
 >
->add_executable(solver equation.cpp)
 >
->include_directories(../formatter_ex_lib ../solver_lib)
 >
->add_subdirectory(../formatter_ex_lib formatter_ex)
->add_subdirectory(../solver_lib solver_lib)
 >
->target_link_libraries(solver formatter_ex solver_lib)
+>add_executable(lab03 "equation.cpp")
+>target_link_libraries(lab03 solver_lib formatter_ex_lib formatter_lib)
 >EOF
 ```
 
@@ -199,7 +203,21 @@ $ cmake -H. -B_build
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/leonard/TIMP/hw3_/solver_application/_build
+
 $ cmake --build _build
+[ 12%] Building CXX object CMakeFiles/formatter_lib.dir/home/leonard/TIMP/hw3_/formatter_lib/formatter.cpp.o
+[ 25%] Linking CXX static library libformatter_lib.a
+[ 25%] Built target formatter_lib
+[ 37%] Building CXX object CMakeFiles/formatter_ex_lib.dir/home/leonard/TIMP/hw3_/formatter_ex_lib/formatter_ex.cpp.o
+[ 50%] Linking CXX static library libformatter_ex_lib.a
+[ 50%] Built target formatter_ex_lib
+[ 62%] Building CXX object CMakeFiles/solver_lib.dir/home/leonard/TIMP/hw3_/solver_lib/solver.cpp.o
+[ 75%] Linking CXX static library libsolver_lib.a
+[ 75%] Built target solver_lib
+[ 87%] Building CXX object CMakeFiles/lab03.dir/equation.cpp.o
+[100%] Linking CXX executable lab03
+[100%] Built target lab03
+
 ```
 commit, push
 ```shell

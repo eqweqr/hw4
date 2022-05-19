@@ -7,12 +7,10 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/leonard/TIMP/hw3_/formatter_ex_lib/CMakeLists.txt"
   "../CMakeLists.txt"
   "CMakeFiles/3.22.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.22.1/CMakeSystem.cmake"
-  "/home/leonard/TIMP/hw3_/solver_lib/CMakeLists.txt"
   "/usr/share/cmake-3.22/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
@@ -41,13 +39,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "formatter_ex/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "solver_lib/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/solver.dir/DependInfo.cmake"
-  "formatter_ex/CMakeFiles/formatter_ex_lib.dir/DependInfo.cmake"
-  "solver_lib/CMakeFiles/solver_lib.dir/DependInfo.cmake"
+  "CMakeFiles/formatter_lib.dir/DependInfo.cmake"
+  "CMakeFiles/formatter_ex_lib.dir/DependInfo.cmake"
+  "CMakeFiles/solver_lib.dir/DependInfo.cmake"
+  "CMakeFiles/lab03.dir/DependInfo.cmake"
   )
