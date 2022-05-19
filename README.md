@@ -37,7 +37,8 @@ $ cmake --build _build
 ```
 Commit, push
 ```shell
-git commit -ma "libr formatter_lib"
+git add .
+git commit -m "libr formatter_lib"
 git push origin master
 ```
 
@@ -48,6 +49,57 @@ git push origin master
 руководитель поручает заняться созданием `CMakeList.txt` для библиотеки 
 *formatter_ex*, которая в свою очередь использует библиотеку *formatter*.
 
+В formatter_ex.cpp нужно указать путь к файлу formatter.h
+```shell
+$ nano formatter_ex.cpp
+#include "../formatter_lib/formatter.h"
+```
+Создание CMakeList.txt
+```shell
+$ cat > CMakeLists.txt <<EOF
+> cmake_minimum_required(VERSION 3.22)
+> project(hw3_1)
+> 
+> set(CMAKE_CXX_STANDART 11)
+> set(CMAKE_CXX_STANDART_REQUIRED ON)
+> 
+> include_directories("../formatter_lib")
+>
+> add_library(formatter_ex_lib STATIC formatter_ex.cpp)
+>
+> target_link_libraries(formatter_ex_lib PUBLIC formatter_lib)
+> EOF
+```
+Билд и линковка
+```shell
+$ cmake -H. -B _build
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/TIMP/hw3_/formatter_ex_lib/_build
+$ cmake --build _build
+[ 50%] Building CXX object CMakeFiles/formatter_ex_lib.dir/formatter_ex.cpp.o
+[100%] Linking CXX static library libformatter_ex_lib.a
+[100%] Built target formatter_ex_lib
+
+```
+Commit, push
+```shell
+$ git add .
+$ git commit -m "lib formatter_ex"
+$ git push origin master
+```
 ### Задание 3
 Конечно же ваша компания предоставляет примеры использования своих библиотек.
 Чтобы продемонстрировать как работать с библиотекой *formatter_ex*,
