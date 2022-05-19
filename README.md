@@ -1,3 +1,4 @@
+# Выполнил ВЕЧЕРИНИН А.А. группа ИУ8-22 
 ## Laboratory work III
 
 Представьте, что вы стажер в компании "Formatter Inc.".
@@ -7,6 +8,38 @@
 В этой директории находятся файлы для статической библиотеки *formatter*.
 Создайте `CMakeList.txt` в директории [formatter_lib](formatter_lib),
 с помощью которого можно будет собирать статическую библиотеку *formatter*.
+
+```shell
+$ cat > CMakeLists.txt <<EOF
+> cmake_minimum_required(VERSION 3.22)
+> project (hw3)
+> 
+> set(CMAKE_CXX_STANDARD 11)
+> set(CMAKE_CXX_STANDARD_REQUIRED ON)
+> 
+> add_library(formatter STATIC formatter.cpp)
+>
+> EOF
+
+```
+Сборка
+```shell
+$ cmake -H. -B_build
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/TIMP/hw3_/formatter_lib/_build
+
+$ cmake --build _build
+[ 50%] Building CXX object CMakeFiles/formatter.dir/formatter.cpp.o
+[100%] Linking CXX static library libformatter.a
+[100%] Built target formatter
+
+```
+Commit, push
+```shell
+git commit -ma "libr formatter_lib"
+git push origin master
+```
 
 ### Задание 2
 У компании "Formatter Inc." есть перспективная библиотека,
