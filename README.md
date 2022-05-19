@@ -105,8 +105,108 @@ $ git push origin master
 Чтобы продемонстрировать как работать с библиотекой *formatter_ex*,
 вам необходимо создать два `CMakeList.txt` для двух простых приложений:
 * *hello_world*, которое использует библиотеку *formatter_ex*;
+
+Создание CMakeLists.txt в директории hello_world_application
+```shell
+$ cat > CMakeLists.txt <<EOF
+> cmake_minimum_required(VERSION 3.22)
+> project(hw3)
+>
+> set(CMAKE_CXX_STANDART 11)
+> set(CMAKE_CXX_STANDART_REQUIRED ON)
+>
+> add_library(hello_world_application hello_world.cpp)
+>
+> include_directories("../formatter_ex_lib")
+> EOF
+```
+Билд
+```shell
+$ cmake -H. -B_build
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/TIMP/hw3_/hello_world_application/_build
+$ cmake --build _build
+[ 50%] Building CXX object CMakeFiles/hello_world_application.dir/hello_world.cpp.o
+[100%] Linking CXX static library libhello_world_application.a
+[100%] Built target hello_world_application
+
+```
 * *solver*, приложение которое испольует статические библиотеки *formatter_ex* и *solver_lib*.
 
+Создание CMakeLists.txt в директории solver_lib
+
+```shell
+$ cat>CMakeLists.txt<<EOF
+>cmake_minimum_required(VERSION 3.22)
+>
+>set(CMAKE_CXX_STANDARD 11)
+>set(CMAKE_CXX_STANDARD_REQUIRED ON)
+>
+>project(solver_lib)
+>
+>add_library(solver_lib STATIC solver.cpp)
+>EOF
+```
+Билд
+```shell
+$ cmake -H. -B_build
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/TIMP/hw3_/solver_lib/_build
+$ cmake --build _build
+Consolidate compiler generated dependencies of target solver_lib
+[100%] Built target solver_lib
+
+```
+Создание CMakeLists.txt в директории solver_lib
+
+```shell
+$ cat>CMakeLists.txt<<EOF
+>cmake_minimum_required(VERSION 3.22)
+>
+>set(CMAKE_CXX_STANDARD 11)
+>set(CMAKE_CXX_STANDARD_REQUIRED ON)
+>
+>project(solver)
+>
+>add_executable(solver equation.cpp)
+>
+>include_directories(../formatter_ex_lib ../solver_lib)
+>
+>add_subdirectory(../formatter_ex_lib formatter_ex)
+>add_subdirectory(../solver_lib solver_lib)
+>
+>target_link_libraries(solver formatter_ex solver_lib)
+>EOF
+```
+
+Билд
+```shell
+$ cmake -H. -B_build
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/leonard/TIMP/hw3_/solver_application/_build
+$ cmake --build _build
+```
+commit, push
+```shell
+$ git add .
+$ git commit -m "fina"
+$ git push origin master
+```
 
 ```
 Copyright (c) 2015-2021 The ISC Authors
